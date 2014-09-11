@@ -20,7 +20,8 @@ for (var i=0, ii = process.argv.length; i<ii; ++i) {
 
 gulp.task('jshint', function() {
    return gulp.src(['./fullscreen.js']).
-       pipe(jshint()) .
+       pipe(jshint()).
+       pipe(jshint.reporter('jshint-stylish')).
        pipe(jshint.reporter('fail'));
 });
 
