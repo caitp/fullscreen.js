@@ -20,7 +20,8 @@ More useful features may be added if they seem useful --- contributions are more
         <tr>
             <td><code>$fullscreen.listen()</code></td>
             <td></td>
-            <td>Start listening for ctrl+f or cmd+f in order to toggle fullscreen mode --- listens on document.</td>
+            <td>Start listening for ctrl+f or cmd+f in order to toggle fullscreen
+                mode --- listens on document.</td>
         </tr>
         <tr>
             <td><code>$fullscreen.deafen()</code></td>
@@ -35,7 +36,7 @@ More useful features may be added if they seem useful --- contributions are more
                 </ol>
             </td>
             <td>Request fullscreen mode for a given element (or the document element if omitted),
-                optionally with [flags](https://developer.apple.com/library/safari/documentation/WebKit/Reference/ElementClassRef/Element/Element.html)
+                optionally with <a href="https://developer.apple.com/library/safari/documentation/WebKit/Reference/ElementClassRef/Element/Element.html">flags</a>
             </td>
         </tr>
         <tr>
