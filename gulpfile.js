@@ -1,6 +1,8 @@
 var gulp = require('gulp');
 var karma = require('./lib/gulp/karma');
 var jshint = require('gulp-jshint');
+var uglify = require('gulp-uglify');
+var concat = require('gulp-concat');
 var args = require('minimist')(process.argv.slice(2), {
     boolean: [
         'debug',
@@ -38,6 +40,15 @@ gulp.task('test', function(done) {
         gulp.watch(['fullscreen.js', '*.spec.js'], ['tests']);
     }
     return gulp.run('tests');
+});
+
+gulp.task('min', function() {
+   return gulp.src('./fullscreen.js').
+       pipe(uglify({
+           preserveComments: 'some'
+       })).
+       pipe(concat('fullscreen.min.js')).
+       pipe(gulp.dest('.'));
 });
 
 gulp.task('default', ['jshint', 'test']);
