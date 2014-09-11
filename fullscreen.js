@@ -128,11 +128,11 @@ Fullscreen.prototype.listen = function Fullscreen$Listen() {
         this._keyListener = toMethod(this, fullscreenKeyListener);
         addEventListener(document, 'keypress', this._keyListener);
     }
-}
+};
 
 Fullscreen.prototype.deafen = function Fullscreen$deafen() {
-    if (this._keyListener) removeEventListener(document)
-}
+    if (this._keyListener) removeEventListener(document, 'keypress', this._keyListener);
+};
 
 Fullscreen.prototype.enter = function Fullscreen$enter(node) {
     if (!node) node = documentElement;
@@ -144,12 +144,12 @@ Fullscreen.prototype.enter = function Fullscreen$enter(node) {
 
     requestFullscreen(node);
     haveRequested = true;
-}
+};
 
 Fullscreen.prototype.exit = function Fullscreen$exit() {
     if (fullscreenElement())
         exitFullscreen();
-}
+};
 
 Fullscreen.prototype.toggle = function Fullscreen$toggle() {
     if (fullscreenElement()) {
@@ -157,7 +157,7 @@ Fullscreen.prototype.toggle = function Fullscreen$toggle() {
     } else {
         this.enter();
     }
-}
+};
 
 var toMethod = Function.prototype.toMethod ?
     (function toMethodFn(obj, fn) {
@@ -183,13 +183,13 @@ var removeEventListener = document.addEventListener ?
 if (typeof define === 'function' && typeof define.amd === 'object' && define.amd) {
   // RequireJS
   define(function() {
-    return new Fullscreen;
+    return new Fullscreen();
   });
 } else if (typeof module === 'object' && typeof require === 'function') {
   // CommonJS/Browserify
-  module.exports = new Fullscreen;
+  module.exports = new Fullscreen();
 } else {
-  global.$fullscreen = new Fullscreen;
+  global.$fullscreen = new Fullscreen();
 }
 
 })(this);
