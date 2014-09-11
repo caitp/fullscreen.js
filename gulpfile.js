@@ -2,22 +2,34 @@ var gulp = require('gulp');
 var karma = require('./lib/gulp/karma');
 var args = require('minimist')(process.argv.slice(2), {
     boolean: [
-        'watch'
+        'debug',
+        'watch',
     ],
     default: {
-        'watch': false
+        'watch': false,
+        'debug': false
     }
 });
 
-gulp.task('test', function(done) {
+for (var i=0, ii = process.argv.length; i<ii; ++i) {
+    var val = process.argv[i];
+    if (val === '--debug') options.debugRun = true;
+    else if (val === '--browsers') options.browsers = process.argv[++i].split(',');
+}
+
+gulp.task('tests', function(done) {
     var options = {
-        configFile: 'karma.conf.js'
+        configFile: 'karma.conf.js',
+        debugRun: args.debug
     };
-    for (var i=0, ii = process.argv.length; i<ii; ++i) {
-        var val = process.argv[i];
-        if (val === '--debug') options.debugRun = true;
-        else if (val === '--single-run') options.singleRun = true;
-        else if (val === '--browsers') options.browsers = process.argv[++i].split(',');
-    }
     return karma('karma.conf.js', done);
 });
+
+gulp.task('test', function(done) {
+    if (args.watch) {
+        gulp.watch(['fullscreen.js', '*.spec.js'], ['tests']);
+    }
+    return gulp.run('tests');
+});
+
+gulp.task('default', ['test']);
