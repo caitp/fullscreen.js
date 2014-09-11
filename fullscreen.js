@@ -43,7 +43,7 @@ var FULLSCREEN_ENABLED_PROPS = [
     'msFullscreenEnabled'
 ];
 
-var requestFullscreenProp;
+var requestFullscreenProp = void 0;
 function requestFullscreen(node, flags) {
     if (typeof node === 'number' || !arguments.length) {
         flags = node;
@@ -53,7 +53,7 @@ function requestFullscreen(node, flags) {
     if (requestFullscreenProp !== void 0)
         return node[requestFullscreenProp](flags);
 
-    for (var i=0; i<REQUEST_FULLSCREEN_PROPS; ++i) {
+    for (var i=0; i<REQUEST_FULLSCREEN_PROPS.length; ++i) {
         var key = REQUEST_FULLSCREEN_PROPS[i];
         if (key in node) {
             requestFullscreenProp = key;
@@ -62,12 +62,12 @@ function requestFullscreen(node, flags) {
     }
 }
 
-var exitFullscreenProp;
+var exitFullscreenProp = void 0;
 function exitFullscreen() {
     if (exitFullscreenProp !== void 0)
         return document[exitFullscreenProp]();
 
-    for (var i=0; i<EXIT_FULLSCREEN_PROPS; ++i) {
+    for (var i=0; i<EXIT_FULLSCREEN_PROPS.length; ++i) {
         var key = EXIT_FULLSCREEN_PROPS[i];
         if (key in document) {
             exitFullscreenProp = key;
@@ -76,28 +76,28 @@ function exitFullscreen() {
     }
 }
 
-var fullscreenElementProp;
+var fullscreenElementProp = void 0;
 function fullscreenElement() {
     if (fullscreenElementProp !== void 0)
         return document[fullscreenElementProp];
 
-    for (var i=0; i<FULLSCREEN_ELEMENT_PROPS; ++i) {
+    for (var i=0; i<FULLSCREEN_ELEMENT_PROPS.length; ++i) {
         var key = FULLSCREEN_ELEMENT_PROPS[i];
-        if (key in node) {
+        if (key in document) {
             fullscreenElementProp = key;
             return document[key];
         }
     }
 }
 
-var fullscreenEnabledProp;
+var fullscreenEnabledProp = void 0;
 function fullscreenEnabled() {
     if (fullscreenEnabledProp !== void 0)
         return document[fullscreenEnabledProp];
 
-    for (var i=0; i<FULLSCREEN_ENABLED_PROPS; ++i) {
+    for (var i=0; i<FULLSCREEN_ENABLED_PROPS.length; ++i) {
         var key = FULLSCREEN_ENABLED_PROPS[i];
-        if (key in node) {
+        if (key in document) {
             fullscreenEnabledProp = key;
             return document[key];
         }
@@ -113,10 +113,11 @@ function Fullscreen() {
 var haveRequested = false;
 
 function fullscreenKeyListener(event) {
-    if (!fullscreenEnabled() && haveRequested)
+    if (haveRequested && !fullscreenEnabled())
         return;
 
     if ((event.charCode === 70 || event.charCode === 102 ||
+        (event.keyIdentifier.toUpperCase() === 'U+0046') ||
          event.char === 'f' || event.char === 'F') &&
          (event.ctrlKey || event.metaKey)) {
         this.toggle();
