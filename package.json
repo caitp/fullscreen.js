@@ -27,6 +27,7 @@
     "gulp": "^3.8.8",
     "karma": "^0.12.23",
     "minimist": "^1.1.0",
-    "gulp-jshint": "^1.8.4"
+    "gulp-jshint": "^1.8.4",
+    "jshint-stylish": "^0.4.0"
   }
 }
