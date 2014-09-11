@@ -1,0 +1,31 @@
+{
+  "name": "fullscreen.js",
+  "version": "0.1.1",
+  "description": "Simplify the Fullscreen API in browsers",
+  "main": "fullscreen.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/caitp/fullscreen.js.git"
+  },
+  "keywords": [
+    "Web",
+    "Fullscreen",
+    "WHATWG",
+    "Browsers"
+  ],
+  "author": "Caitlin Potter <caitpotter88@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/caitp/fullscreen.js/issues"
+  },
+  "homepage": "https://github.com/caitp/fullscreen.js",
+  "devDependencies": {
+    "karma-jasmine": "^0.1.5",
+    "gulp": "^3.8.8",
+    "karma": "^0.12.23",
+    "minimist": "^1.1.0"
+  }
+}
