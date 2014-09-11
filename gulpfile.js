@@ -40,4 +40,4 @@ gulp.task('test', function(done) {
     return gulp.run('tests');
 });
 
-gulp.task('default', ['test']);
+gulp.task('default', ['jshint', 'test']);
