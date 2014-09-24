@@ -6,7 +6,7 @@ This allows one to work around the various vendor-prefixed implementations of th
 
 More useful features may be added if they seem useful --- contributions are more than welcome.
 
-(This was initially written as a helper for [https://github.com/caitp/angular-unleashed](my Web Unleashed 2014 slide deck) as a way to switch the presentation to fullscreen mode... I'm sure it has other uses, so send me a pull request if you want/need something from it!)
+(This was initially written as a helper for [my Web Unleashed 2014 slide deck](https://github.com/caitp/angular-unleashed) as a way to switch the presentation to fullscreen mode... I'm sure it has other uses, so send me a pull request if you want/need something from it!)
 
 ##Usage
 
