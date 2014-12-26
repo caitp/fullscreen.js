@@ -1,4 +1,5 @@
-#Fullscreen.js
+Fullscreen.js
+=============
 
 Fullscreen.js is a simple wrapper for using [Fullscreen API](http://fullscreen.spec.whatwg.org/) in browsers.
 
