@@ -1,6 +1,8 @@
 Fullscreen.js
 =============
 
+[![Build Status](https://img.shields.io/travis/caitp/fullscreen.js/master.svg?style=flat)](https://travis-ci.org/caitp/fullscreen.js)
+
 Fullscreen.js is a simple wrapper for using [Fullscreen API](http://fullscreen.spec.whatwg.org/) in browsers.
 
 This allows one to work around the various vendor-prefixed implementations of the API, and provides some convenience routines for listening for ctrl+f or cmd+f to toggle fullscreen mode.
