@@ -2,6 +2,7 @@ Fullscreen.js
 =============
 
 [![Build Status](https://img.shields.io/travis/caitp/fullscreen.js/master.svg?style=flat)](https://travis-ci.org/caitp/fullscreen.js)
+[![devDependency Status](https://img.shields.io/david/dev/caitp/fullscreen.js.svg?style=flat)](https://david-dm.org/caitp/fullscreen.js#info=devDependencies)
 
 Fullscreen.js is a simple wrapper for using [Fullscreen API](http://fullscreen.spec.whatwg.org/) in browsers.
 
