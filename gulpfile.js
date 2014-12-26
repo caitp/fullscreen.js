@@ -14,6 +14,13 @@ var args = require('minimist')(process.argv.slice(2), {
     }
 });
 
+var options = {
+  configFile: 'karma.conf.js',
+  singleRun: !args.watch,
+  autoWatch: args.watch,
+  debugRun: false
+};
+
 for (var i=0, ii = process.argv.length; i<ii; ++i) {
     var val = process.argv[i];
     if (val === '--debug') options.debugRun = true;
@@ -28,11 +35,7 @@ gulp.task('jshint', function() {
 });
 
 gulp.task('tests', function(done) {
-    var options = {
-        configFile: 'karma.conf.js',
-        debugRun: args.debug
-    };
-    return karma('karma.conf.js', done);
+    return karma(options, done);
 });
 
 gulp.task('test', function(done) {
